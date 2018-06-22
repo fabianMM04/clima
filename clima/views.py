@@ -36,7 +36,7 @@ class RegCoor(CreateView):
         if not self.request.user.is_staff and not self.request.user.is_admin:
             raise Http404
         if form.has_changed:
-            log_registro(form.instance, self.request.user, {"fields": form.changed_data})
+            print("cambio")
         return super(RegCoor, self).form_valid(form)
 
 
@@ -45,8 +45,7 @@ class LiCoor(ListView):
     model = Coordenadas
     paginate_by = 30
     def get_queryset(self):
-        if not self.request.user.is_staff and not self.request.user.is_admin and not self.request.user.es_ase \
-                and not self.request.user.es_car:
+        if not self.request.user.is_staff and not self.request.user.is_admin:
             raise Http404
         qs = Coordenadas.objects.filter().order_by('-fcs')
         lat = self.request.GET.get('lat', None)

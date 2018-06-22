@@ -1,5 +1,16 @@
 {% extends "index.html" %} 
-
+{% load crispy_forms_tags %}
 {% block contenido %}
 <h1>Formulario de coordenadas</h1>
+{% if form.is_multipart %}
+                                <form class="form-horizontal" enctype="multipart/form-data" method="POST" action=".">
+                            {% else %}
+                                <form class="form-horizontal" action="." method="POST">
+                            {% endif %}
+                            <div class="col-md-12">
+                                <br />
+                                {% crispy form %}
+                            </div>
+                            </form>
+
 {% endblock contenido %}
