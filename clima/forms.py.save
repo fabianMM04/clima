@@ -1,10 +1,6 @@
 from crispy_forms.layout import Submit
-from django import forms
+from django import forms class FormMedicion(forms.ModelForm):
 from crispy_forms.helper import FormHelper
-from .models import Medicion, Coordenadas, Sensor
-
-
-class FormMedicion(forms.ModelForm):
     class Meta:
         model = Medicion
         fields = ['temp', 'humedad', 'viento', 'desc']
@@ -24,11 +20,11 @@ class FormMedicion(forms.ModelForm):
 
 class FormCoor(forms.ModelForm):
     class Meta:
-        model = Coordenadas
+        model = Consignacion
         fields = ['lat', 'lon']
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('request')
-        super(FormCoor, self).__init__(*args, **kwargs)
+        super(FormConsig, self).__init__(*args, **kwargs)
         self.helper = FormHelper(self)
         self.form_method = 'post'
         self.helper.label_class = 'col-md-3'
@@ -41,7 +37,7 @@ class FormCoor(forms.ModelForm):
 class FormSensor(forms.ModelForm):
     class Meta:
         model = Sensor
-        fields = ['tipo', 'est', 'medicion_id', 'coor_id']
+        fields = ['tip', 'est', 'medicion_id', 'coor_id']
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('request')
         super(FormConsig, self).__init__(*args, **kwargs)

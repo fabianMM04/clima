@@ -1,0 +1,13 @@
+{% extends "index.html" %}
+
+{% block contenido %}
+<h1>Lista de coordenadas</h1>
+<table>
+{% for lo in object_list %}
+  <tr>
+    <td>Latitud: {{ lo.lat }}</td>
+    <td>Longitud: {{ lo.lon }}</td>
+    <td>Fecha: {{ lo.fcs }}</td>
+  </tr>
+{% endfor %}
+{% endblock %}
