@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+
+{% block contenido %}
+<h1>Lista de Medicion</h1>
+<table>
+{% for lo in object_list %}
+  <tr>
+    <td>Temperatura: {{ lo.temp }}</td>
+    <td>Humedad: {{ lo.humedad }}</td>
+    <td>Viento: {{ lo.viento }}</td>
+    <td>Descripcion: {{ lo.desc }}</td>
+    <td>Fecha: {{ lo.fcs }}</td>
+  </tr>
+{% endfor %}
+{% endblock %}

@@ -10,7 +10,7 @@ class FormMedicion(forms.ModelForm):
         fields = ['temp', 'humedad', 'viento', 'desc']
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('request')
-        super(FormConsig, self).__init__(*args, **kwargs)
+        super(FormMedicion, self).__init__(*args, **kwargs)
         self.helper = FormHelper(self)
         self.form_method = 'post'
         self.helper.label_class = 'col-md-3'
