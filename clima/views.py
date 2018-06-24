@@ -15,10 +15,14 @@ def index(request):
     username = '171398ce-69b5-4c30-9296-418350e9c8ff'
     password = 'KbDCtrGIU9'
     url = 'https://171398ce-69b5-4c30-9296-418350e9c8ff:KbDCtrGIU9@twcservice.mybluemix.net:443/api/weather/v1/geocode/10.39/-75.49/forecast/hourly/48hour.json?units=m&language=en-US'
+    url2 = 'https://twcservice.mybluemix.net/api/weather/v1/geocode/10.3945943/-75.4995721/observations.json?language=en-US'
     r = requests.get(url,auth=(username,password))
     j = json.loads(r.text)
-    data = j["forecasts"][0]
-    return render(request, 'index.html', {'data': data})
+    r2 = requests.get(url2,auth=(username,password))
+    j2 = json.loads(r2.text)
+    data = j["forecasts"]
+    data2 = j2["observation"]["obs_name"]
+    return render(request, 'index.html', {'data': data, 'data2': data2})
     
 
 
