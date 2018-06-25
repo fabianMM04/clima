@@ -1,0 +1,101 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Clima</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+            body{   
+                height: 100%;
+                width: 100%;
+                margin:0; padding:0;
+                background-color: whitesmoke;
+            }
+            #map{
+                top:0; bottom:50%;
+                height: 35em;
+            }
+            .padding{
+                padding-top: 4rem;
+                padding-bottom: 2.4rem; 
+            }
+            .forescast-wrap h2{
+                text-align: center;
+                font-size: 1.5em;
+                background-color: #283149;
+                color: rgba(255, 255, 255, 0.972);
+                padding: 4px 16px;
+                border-radius: 4px;
+            }
+            .forescast-wrap:after{
+            }
+            .content-data{
+            }
+            .content-data h5{
+                font-weight: 600;
+            }
+            h4 {
+                font-size: 0.8rem;
+            }
+            .sub-title{
+                font-size: 1.7em;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: -1px;
+            }
+            .hisotrico-wrap{
+                background: white;
+            }
+            .hisotrico-wrap h2{
+                padding-bottom: .5em;
+                font-weight: 600;
+                border-bottom: 1px rgba(201, 193, 193, 0.37) solid;
+            }
+            .cont-hist{
+                background-color: #16358a;
+                color: white;
+                height: 200px;
+            }
+            .cont-hist:hover{
+                transform: scale(1.1);
+            }
+            footer{
+                background-color: #283149;
+                color: rgba(255, 255, 255, 0.575);
+                font-size: 1em;
+                font-weight: 200;
+                padding: 1em 0;
+            }
+            .fa-heart{
+                color: #f73859;
+            }
+          </style>
+  </head>
+  <body>
+    {% block contenido %}
+
+    {% endblock %}
+    <footer class="container-fluid">
+            <div class="row text-center">
+                <div class="col-12">
+                    <span>Made with <i class="fas fa-coffee"></i> and <i class="fas fa-heart" aria-hidden="true"></i> in Me.</span>                                    
+            </div>
+    </footer>
+    {% block scrips %}
+
+    {% endblock %}
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+
+</html>

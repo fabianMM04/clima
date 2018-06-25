@@ -21,8 +21,8 @@ def index(request):
     r2 = requests.get(url2,auth=(username,password))
     j2 = json.loads(r2.text)
     data = j["forecasts"]
-    data2 = j2["observation"]["obs_name"]
-    return render(request, 'clim/clima.html', {'data': data, 'data2': data2})
+    data2 = j2["observation"]
+    return render(request, 'index.html', {'data': data, 'data2': data2})
     
 
 

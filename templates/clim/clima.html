@@ -1,0 +1,75 @@
+{% extends "../index2.html" %}
+
+{% block contenido %}
+   <div class="container pb-5">
+          <div class="row padding">
+              <div class="col-md-5 forescast-wrap">
+                  <h2 class="p-4"><i class="fas fa-map-marker-alt"></i> {{ data2 }}</h2>
+                  <div class="row text-center py-2">
+                      <div class="col-md-6">
+                          <span class="display-3">{{ data.0.temp }}°</span>
+                      </div>
+                      <div class="col-md-6">
+                          <img src="static/weather_icons_200x200_png/PNGs/{{ data.0.icon_code }}.png" width="100" height="100" class="img-fluid" alt="Img del clima"> 
+                      </div>
+                      <div class="col-md-12 pt-2 sub-title">
+                          <hr>
+                          <span class="py-3">{{ data.0.phrase_22char }}</span>
+                      </div>
+                  </div>
+                  <div class="row mt-4 content-data text-center">
+                        <div class="col-md-3 col-sm-3">
+                            <h5>Humedad</h5>
+                            <span>{{ data.0.rh }}%</span>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <h5>Rayo UV</h5>
+                            <span>{{ data.0.uv_desc }}</span>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <h5>Presión</h5>
+                            <span>{{ data.0.mslp }}</span>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <h5>Sensación</h5>
+                            <span>{{ data.0.feels_like }}°</span>
+                        </div>
+                  </div>
+                  <div class="row pt-4">
+                        <div class="col-md-12">
+                            <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block">Enviar</button>
+                        </div>
+                  </div>    
+              </div>
+              <div class="col-md-7">
+                  <div id="map"></div>
+              </div>
+          </div>
+
+          <div class="row p-4 hisotrico-wrap">
+              <div class="col-12"><h2>Pronostico del clima para las siguientes 48 horas</h2></div>
+              
+              <!--Aqui metes el ciclo-->
+              {% for cli in data %}
+              <div class="col-md-2 mt-3 text-center cont-hist">
+                  <h4 class="py-4">{{ cli.fcst_valid_local }}</h4>
+                  <img src="static/weather_icons_200x200_png/PNGs/{{ cli.icon_code }}.png" width="40" height="40" class="img-fluid pb-5" alt="ICONO CLIMA">
+                  <br>
+                  <span>{{ cli.temp }}°</span>
+              </div>
+              {% endfor %}
+          </div>
+      </div>
+
+{% endblock %}
+{% block scrips %}
+   <script>
+            map =  L.mapbox.accessToken = 'pk.eyJ1IjoiZmFiaWFubW0wNCIsImEiOiJjamlxd3lleHMxMDF5M3Z0OW0wdWF0czByIn0._igLBqsn4pW-eNo_340gFg';
+            var map = L.mapbox.map('map', 'mapbox.streets')
+            .setView([10.39, -75.47], 9);
+            var marker = L.marker([10.39, -75.47], {
+              icon: L.mapbox.marker.icon({
+                  'marker-color': '#9c89cc'})
+                  }).addTo(map)
+    </script>
+{% endblock %}
