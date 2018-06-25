@@ -4,7 +4,7 @@ from django.views.generic import TemplateView, ListView, CreateView, UpdateView,
 from django.urls import reverse_lazy
 from django.views.generic.edit import ModelFormMixin
 from django.contrib import messages
-from .forms import FormCoor, FormMedicion
+#from .forms import FormCoor, FormMedicion
 from .models import Medicion, Coordenadas
 import requests
 import json
@@ -25,7 +25,7 @@ def index(request):
     return render(request, 'clim/clima.html', {'data': data, 'data2': data2})
     
 
-
+'''
 class RegCoor(CreateView):
     template_name = 'formcoor.html'
     form_class = FormCoor
@@ -96,6 +96,7 @@ class LiCoor(ListView):
         if lon:
             context["lon"] = lon
         return context
+
 
 class RegMedi(CreateView):
     template_name = 'formmedi.html'
@@ -179,3 +180,4 @@ class LiMedi(ListView):
         if desc:
             context["desc"] = desc
         return context
+'''

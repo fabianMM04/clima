@@ -1,3 +1,4 @@
+'''
 from crispy_forms.layout import Submit
 from django import forms
 from crispy_forms.helper import FormHelper
@@ -54,3 +55,4 @@ class FormSensor(forms.ModelForm):
         self.fields['medicion_id'].required = True
         self.fields['coor_id'].required = True
         self.helper.add_input(Submit('submit', 'Enviar'))
+'''
